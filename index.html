@@ -1,11 +1,52 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Test Home New Project</h1>
+    <h1 class="text-red">Test Home New Project</h1>
+    <table id="table_id" class="display">
+        
+    </table>
 </body>
+
 </html>
+
+<script type="text/javascript">
+
+$(document).ready( function () {
+
+    // Set table's columns
+    const columns = [
+        { data: 'REPORT_FOLDER_NAME', title: 'หน่วยงาน'},
+        { data: 'PERIODICITY', title: 'ประเภท'},
+    ];
+    
+    const data = [
+        {REPORT_FOLDER_NAME: "AB", PERIODICITY: "monthly"},
+        {REPORT_FOLDER_NAME: "AB2", PERIODICITY: "daily"}
+    ]
+
+    var datatableOptions = {
+        columns: columns,
+        data: data,
+        dom: '<"top"Bfrt><"bottom"ip>',
+    }
+    $('#table_id').DataTable(datatableOptions);
+} );
+
+</script>
